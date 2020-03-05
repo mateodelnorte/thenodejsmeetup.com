@@ -11,10 +11,7 @@ const Index = ({ data }) => (
   <Layout>
     <Box>
       <Title as="h2" size="large">
-        1000 voices is a video campaign advocacating for the policies of
-        Presidential Candidate Andrew Yang. Videos are provided by you, the
-        People of America, and highlight the problems you face in your
-        lives and how $1000 a month will help you surpass them.
+        The Node.js Meetup | ATX & NYC.
       </Title>
     </Box>
     <Gallery items={data.allYoutubeVideo.edges} />

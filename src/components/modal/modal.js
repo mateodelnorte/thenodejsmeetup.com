@@ -11,13 +11,12 @@ import './reach.override.styles.css';
 // React Context integration. No need to keep this if
 // you don't require a Modal in your project.
 export default class Modal extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       open: false,
-    }
+    };
 
     this.hide = this.hide.bind(this);
     this.show = this.show.bind(this);
@@ -49,16 +48,16 @@ export default class Modal extends Component {
     }
   }
 
-  hide () {
+  hide() {
     this.setState({
       open: false,
-    })
+    });
   }
 
-  show () {
+  show() {
     this.setState({
       open: true,
-    })
+    });
   }
 
   render() {
@@ -70,8 +69,18 @@ export default class Modal extends Component {
     // debugger; // eslint-disable-line
     return (
       <>
-        <div style={{ cursor: 'pointer' }} onClick={this.show} onKeyDown={this.hide} role="button" tabIndex={0}>
-          <img style={{ maxWidth: '340px', maxHeight: '240px' }} src={thumbnail.url} alt={title} />
+        <div
+          style={{ cursor: 'pointer' }}
+          onClick={this.show}
+          onKeyDown={this.hide}
+          role="button"
+          tabIndex={0}
+        >
+          <img
+            style={{ maxWidth: '340px', maxHeight: '240px' }}
+            src={thumbnail.url}
+            alt={title}
+          />
           <figcaption style={{ maxWidth: '340px' }}>
             <Title>{title}</Title>
             <Copy>{description}</Copy>
@@ -84,26 +93,28 @@ export default class Modal extends Component {
             <span aria-hidden>×</span>
           </Close>
           <>
-          <div className="video"
-            style={{
-              position: "relative",
-              paddingBottom: "56.25%" /* 16:9 */,
-              paddingTop: 25,
-              height: 0
-            }} >
-            <iframe
-              title={title}
+            <div
+              className="video"
               style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%"
+                position: 'relative',
+                paddingBottom: '56.25%' /* 16:9 */,
+                paddingTop: 25,
+                height: 0,
               }}
-              src={`https://www.youtube.com/embed/${videoId}`}
-              frameBorder="0"
-            />
-          </div>
+            >
+              <iframe
+                title={title}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                }}
+                src={`https://www.youtube.com/embed/${videoId}`}
+                frameBorder="0"
+              />
+            </div>
           </>
         </Dialog>
       </>
@@ -113,7 +124,7 @@ export default class Modal extends Component {
 
 Modal.propTypes = {
   description: PropTypes.string,
-  title: PropTypes.string, 
+  title: PropTypes.string,
   thumbnail: PropTypes.object.isRequired,
   url: PropTypes.string.isRequired,
   videoId: PropTypes.string.isRequired,

@@ -1,21 +1,9 @@
 const path = require('path');
-const slug = require('slug')
+const slug = require('slug');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
-
-exports.onCreateWebpackConfig = ({
-  actions,
-}) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      plugins: [new DirectoryNamedWebpackPlugin()],
-    }
-  });
-};
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === `YoutubeVideo`) {
-
     const videoSlug = slug(node.title);
     const { createNodeField } = actions;
 
@@ -24,10 +12,29 @@ exports.onCreateNode = ({ node, actions }) => {
       name: `slug`,
       value: videoSlug,
     });
-
   }
-}
+};
 
+exports.onCreateWebpackConfig = ({
+  stage,
+  getConfig,
+  rules,
+  loaders,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      plugins: [
+        new DirectoryNamedWebpackPlugin({
+          exclude: /node_modules/,
+        }),
+      ],
+    },
+  });
+};
+
+/*
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
@@ -52,11 +59,13 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
++};
 
     if (result.errors) {
       console.error(result.errors);
       return process.exit();
     }
-    
+
   })
 }
+*/
