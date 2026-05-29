@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "ava": "^3.5.0",
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.11.0",
     "chrome-launcher": "^0.13.0",
     "core-js": "^2.6.11",
     "directory-named-webpack-plugin": "^4.0.1",
