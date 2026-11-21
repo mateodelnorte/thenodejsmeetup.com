@@ -35,7 +35,7 @@
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-source-youtube": "iyeraravind/gatsby-source-youtube",
     "gatsby-transformer-json": "^2.2.26",
-    "gatsby-transformer-remark": "^2.6.53",
+    "gatsby-transformer-remark": "^5.0.0",
     "gatsby-transformer-sharp": "^2.3.16",
     "intersection-observer": "^0.7.0",
     "prop-types": "^15.7.2",
